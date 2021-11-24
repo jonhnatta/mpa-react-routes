@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function Posts() {
 
   const [posts, setPosts] = useState([])
+  let location = useLocation()
+  console.log(location)
 
   useEffect(() => {
     const getPosts = async () => {
@@ -31,6 +34,7 @@ function Posts() {
       })}
     </div>
   )
+
 }
 
 export default Posts;
