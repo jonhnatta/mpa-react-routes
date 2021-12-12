@@ -5,8 +5,8 @@ import '../styles/header.css';
 
 function Header() {
   return (
-    <div className="container">
-      <header className="header container">
+    <div className="header-container">
+      <header className="header header-container">
         <h1><Link to="/">Logo</Link></h1>
         <nav>
           <ul>

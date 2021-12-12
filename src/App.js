@@ -14,16 +14,20 @@ import Post from "./routes/Post";
 
 import './styles/global.css'
 
+import react from "react";
+
 function App() {
   return (
     <Router>
       <Header />
+      <div className="container">
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/posts" element={<Posts />} />
         <Route exact path="/posts/:id" element={<Post />} />
       </Routes>
+      </div>
       <Footer />
     </Router>
   );

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 
+
 function Post() {
 
   const [post, setPost] = useState(null)
@@ -12,8 +13,8 @@ function Post() {
     const getPost = async () => {
       try {
         const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-        const postInfo = await postResponse.json()
-        setPost(postInfo)
+        const data = await postResponse.json()
+        setPost(data)
       } catch {
         console.log('Ocorreu algum erro ao buscar os posts');
       }
