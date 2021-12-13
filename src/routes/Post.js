@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 
 
@@ -8,6 +8,8 @@ function Post() {
   const [post, setPost] = useState(null)
 
   const { id } = useParams();
+
+  const history = useNavigate()
 
   useEffect(() => {
     const getPost = async () => {
@@ -22,6 +24,12 @@ function Post() {
     getPost()
   }, [id])
 
+
+  const goBack = () => {
+    history('/posts')
+  }
+
+
   //barreira de carregamento
 
   if(!post) return null//component de loading
@@ -31,6 +39,7 @@ function Post() {
       <h2>Post:</h2>
       <h4>{post.id} - {post.title}</h4>
       <p>{post.body}</p>
+      <button onClick={ () => goBack()}>Voltar</button>
       {/* {post.map(({id,title,body}) => {
         return (
           <React.Fragment key={id}>

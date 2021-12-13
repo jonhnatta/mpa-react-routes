@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
 
 function Posts() {
 
   const [posts, setPosts] = useState([])
   const location = useLocation()
+  const history = useNavigate()
+
 
 
   useEffect(() => {
@@ -19,7 +22,7 @@ function Posts() {
         const filteredPosts = userId
           ? postsInfo.filter(post => post.userId === userId)
           : postsInfo
-          
+
         setPosts(filteredPosts)
       } catch {
         console.log('Ocorreu algum erro ao buscar os posts');
@@ -28,14 +31,17 @@ function Posts() {
     getPosts()
   }, [location.search])
 
+  const handleNavigation = id => {
+    history(`/posts/${id}`)
+  }
+
   return (
     <div>
       <h2>Meus Posts:</h2>
-      {posts.map(({ id, title, body }) => {
+      {posts.map(({ id, title, }) => {
         return (
           <React.Fragment key={id}>
-            <h4>{id} - {title}</h4>
-            <p>{body}</p>
+            <h4 className="id-posts" onClick={() => handleNavigation(id)}>{id} - {title}</h4>
           </React.Fragment>
         )
       })}
