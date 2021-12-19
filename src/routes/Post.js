@@ -25,10 +25,11 @@ function Post() {
   }, [id])
 
 
-  const goBack = () => {
-    history('/posts')
-  }
+  // const goBack = () => {
+  //   history('/posts')
+  // }
 
+  const {goBack} = useNavigate();
 
   //barreira de carregamento
 

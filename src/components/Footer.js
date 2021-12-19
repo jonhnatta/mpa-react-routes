@@ -1,7 +1,14 @@
+import React from 'react';
+// import styled from "styled-components";
+
+// const StyleFooter = styled.h1`
+//  color: red;
+// `
+
 
 function Footer(){
   return(
-    <h1>Meu Footer</h1>
+    <StyleFooter>Meu Footer</StyleFooter>
   )
 }
 
